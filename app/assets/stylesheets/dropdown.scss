@@ -1,0 +1,37 @@
+.drop-down {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 150px;
+  padding-top: 10px;
+  background-color: Transparent;
+  border-bottom: 1px solid #eeeff2;
+}
+
+.drop-down-closed {
+  display: none;
+}
+
+.drop-down > li {
+  background-color: white;
+  padding: 5px;
+  font-family: sans-serif;
+  font-weight: lighter;
+  padding: 5% 0 5% 5%;
+}
+
+.drop-down > li:hover {
+  color: #0099e5;
+}
+
+.drop-down > li > a {
+  background-color: white;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-weight: lighter;
+  color:inherit;
+}
+
+.drop-down > li > a:hover {
+  color: #0099e5;
+}

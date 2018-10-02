@@ -1,0 +1,59 @@
+.splash-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2% 5% 1% 4%;
+  ul {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.splash-main {
+    background-image: image_url('main.jpg');
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-position-y: 75%;
+    background-attachment: fixed;
+}
+
+.sans-serif {
+  font-family: sans-serif;
+}
+
+.nanum {
+  font-family: 'Nanum Pen Script', cursive;
+}
+
+.melody {
+  font-family: 'Hi Melody', cursive;
+}
+
+.pathway {
+  font-family: 'Pathway Gothic One', sans-serif;
+}
+
+.splash-banner {
+  padding: 10% 5% 0 5%;
+  p {
+    font-size: 40px;
+    font-weight: lighter;
+    text-align: left;
+    color: white;
+  }
+}
+
+.splash-button1 {
+  background: transparent;
+  border: none;
+  font-family: sans-serif;
+  font-size: 14px;
+  color: white;
+
+}
+
+.splash-button1:hover {
+  cursor: pointer;
+  color:lightgrey;
+}
