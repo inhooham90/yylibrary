@@ -6,36 +6,14 @@ import BookUploadContainer from './book_form_container';
 class BookIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
-    this.state = {activateProfileDrop: false};
-    this.openProfile = this.openProfile.bind(this);
-    this.closeProfile = this.closeProfile.bind(this);
   }
 
   componentWillMount(){
     this.props.fetchBooks();
   }
 
-  handleClick(e) {
-    e.preventDefault();
-    this.props.logout();
-  }
-
-  openProfile () {
-    this.setState({activateProfileDrop: true})
-  }
-
-  closeProfile () {
-    this.setState({activateProfileDrop: false})
-  }
 
   render() {
-    let toggle;
-    if (this.state.activateProfileDrop === true) {
-      toggle = 'drop-down';
-    } else {
-      toggle = 'drop-down-closed';
-    };
 
     const bookitems = this.props.books.map((book, key) => {
       return (
@@ -43,52 +21,29 @@ class BookIndex extends React.Component {
           book={book}
           currentUserId={this.props.currentUserId}
           key={key}
-
-
-
           />
       );
     }
   );
 
+  let upload;
+  if (this.props.admin) {
+    upload = (<li onClick={() => this.props.openModal('upload')} className="new-button">
+      Upload
+    </li>)
+  }
       return (
-        <div className='book-index-wrap'>
-          <header className="header">
-            <nav className="header-nav">
-
-              <ul className="header-list">
-                <li><Link className='logo' to='/'>Logo Here</Link></li>
-                <li>Discover</li>
-                <li>About</li>
-              </ul>
-
-              <ul className="header-drop-down">
-                <li
-                  onMouseEnter={this.openProfile}
-                  onMouseLeave={this.closeProfile}>
-                  <ul className='drop-down-child'>
-                    <li>
-                      <ul
-                        onMouseEnter={this.openProfile}
-                        onMouseLeave={this.closeProfile}
-                        className={toggle}>
-                        <li>
-                          drop down 1
-                        </li>
-
-                        <li onClick={this.handleClick}>Log out</li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li onClick={() => this.props.openModal('upload')}>
-                  Upload
-                </li>
-
-              </ul>
-            </nav>
-          </header>
-          </div>
+        <div className="main-div">
+          <h1 className="page-title"> Books </h1>
+          <ul className="book-index">
+            <ul className="index-side">
+              {upload}
+            </ul>
+            <ul className="index-main">
+              {bookitems}
+            </ul>
+          </ul>
+        </div>
       )
   }
 }

@@ -29,12 +29,17 @@ class SessionForm extends React.Component {
   }
 
   render() {
+
+    if (this.props.currentUser) {
+      this.props.closeModal();
+    }
+
     let errors;
     if (this.props.errors) {
       errors =
         <ul className='error-list'>
-          {this.props.errors.map(error => {
-            return <li>{error}</li>
+          {this.props.errors.map((error, idx) => {
+            return <li key={idx} >{error}</li>
           })}
         </ul>
     }

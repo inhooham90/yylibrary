@@ -13,10 +13,8 @@ class BookIndexItem extends React.Component {
       <li className='index-items'>
         <ul className='index-item-info'>
           <img src={`${this.props.book.cover_url}`} />
-          <li>{this.props.book.title}</li>
-          <li>{this.props.book.author}</li>
-          <li>{this.props.book.year}</li>
-          <li>{this.props.book.description}</li>
+          <li className="index-title">{this.props.book.title}</li>
+          <li className="index-author">{this.props.book.author}</li>
         </ul>
       </li>);
   }

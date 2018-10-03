@@ -31,11 +31,26 @@ const Protected = ({ component: Component, path, loggedIn, exact, foo }) => { //
   );
 };
 
+// const Admin = ({ component: Component, path, loggedIn, exact, admin }) => { //prevents logged in user from seeing log in / sign up
+//   function toRender(props) {
+//     if (!admin || !loggedIn) {
+//       return <Redirect to='/' />;
+//     } else {
+//       return <Component {...props} />;
+//     }
+//   }
+//   return (
+//     <Route path={path} exact={exact} render={toRender} />
+//   );
+// };
+
 const mapStateToProps = (state) => {
   return {
-    loggedIn: Boolean(state.session.currentUserId)
+    loggedIn: Boolean(state.session.currentUserId),
+    admin: state.admin
   }
 }
 
 export const AuthRoute = withRouter(connect(mapStateToProps)(Auth));
 export const ProtectedRoute = withRouter(connect(mapStateToProps)(Protected));
+// export const AdminRoute = withRouter(connect(mapStateToProps)(Admin));

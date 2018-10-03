@@ -104,9 +104,6 @@ export default class BookForm extends React.Component {
           <div className='upload-form'>
             <ul className='upload-form-list'>
               <li>
-                <button className='upload-button' onClick={handleSubmit}>Submit</button>
-              </li>
-              <li>
                 <label><p>Title</p>
                   <input
                     type="text"
@@ -127,7 +124,7 @@ export default class BookForm extends React.Component {
                   <input
                     type="text"
                     value={this.state.author}
-                    onChange={this.update('title')} />
+                    onChange={this.update('author')} />
                 </label>
               </li>
               <li>
@@ -135,7 +132,7 @@ export default class BookForm extends React.Component {
                   <input
                     type="text"
                     value={this.state.year}
-                    onChange={this.update('title')} />
+                    onChange={this.update('year')} />
                 </label>
               </li>
               <li>
@@ -144,6 +141,9 @@ export default class BookForm extends React.Component {
                     value={this.state.description}
                     onChange={this.update('description')} />
                 </label>
+              </li>
+              <li>
+                <button className='upload-button' onClick={handleSubmit}>Submit</button>
               </li>
               <li>
                 {errors}

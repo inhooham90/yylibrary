@@ -18,6 +18,7 @@ const mapStateToProps = (state) => {
     errors: state.errors,
     books: Object.values(state.entities.books),
     users: state.entities.users,
+    admin: state.admin.valid
   };
 };
 

@@ -33,6 +33,10 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    if (this.props.currentUser) {
+      this.props.closeModal();
+    }
+    
     let errors;
     if (this.props.errors) {
       errors = (

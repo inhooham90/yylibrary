@@ -32,7 +32,6 @@ export const receiveNoErrors = () => {
   };
 };
 
-
 export const login = user => {
   return dispatch => {
     return SessionApiUtil.login(user).then(user => {

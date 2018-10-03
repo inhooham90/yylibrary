@@ -7,6 +7,21 @@ class Splash extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.state = { dd: false };
+    this.openDd = this.openDd.bind(this);
+    this.closeDd = this.closeDd.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({ dd: false })
+  }
+
+  openDd () {
+    this.setState({ dd: true })
+  }
+
+  closeDd () {
+    this.setState({ dd: false })
   }
 
   handleClick(e) {
@@ -15,45 +30,24 @@ class Splash extends React.Component {
   }
 
   render() {
-    let navRight;
-    if (!this.props.currentUser) {
-      navRight = (
-        <ul>
-          <li>
-            <button className='splash-button1' onClick={() => this.props.openModal('signin')}>Sign In</button>
-          </li>
-          <li>
-            <button className='splash-button1' onClick={() => this.props.openModal('signup')}>Sign Up</button>
-          </li>
-        </ul>
-      )
+    let toggle;
+    if (!this.state.dd) {
+      toggle = 'dd-closed';
     } else {
-      navRight = (
-        <ul>
-          <li className='splash-button1'>
-            {this.props.currentUser.username}
-          </li>
-        </ul>
-      )
-    }
-
-    let navBar =
-    (<div className='splash-nav'>
-      <ul >
-        <li><Link to='/'>Logo Here</Link></li>
-      </ul>
-        {navRight}
-    </div>)
+      toggle = 'dd-opened';
+    };
     return (
       <section>
         <section className='splash-main'>
-          {navBar}
           <div className='splash-banner'>
             <p className='sans-serif'>
               Welcome to the <br/>Youyoung Library<br/><br/>
           </p>
           </div>
 
+        </section>
+        <section>
+          <Link to="/books">See All Books</Link>
         </section>
         <div>
           hello<br/>
